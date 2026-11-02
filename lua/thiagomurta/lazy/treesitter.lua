@@ -20,6 +20,13 @@ return {
 				"python",
 				"c",
 				"cpp",
+                "rust",
+				"bash",
+				"yaml",
+				"toml",
+				"dockerfile",
+				"gomod",
+				"gowork",
 			}
 
 			local group = vim.api.nvim_create_augroup("ThiagoMurtaTreesitter", { clear = true })

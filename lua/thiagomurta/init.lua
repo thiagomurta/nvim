@@ -15,7 +15,7 @@ require("thiagomurta.lazy_init")
 -- DO.not
 
 local augroup = vim.api.nvim_create_augroup
-local ThiagoMurtaGroup = augroup('ThePrimeagen', {})
+local ThiagoMurtaGroup = augroup('ThiagMurta', {})
 
 local autocmd = vim.api.nvim_create_autocmd
 local yank_group = augroup('HighlightYank', {})
@@ -34,7 +34,7 @@ autocmd('TextYankPost', {
     group = yank_group,
     pattern = '*',
     callback = function()
-        vim.highlight.on_yank({
+        vim.hl.on_yank({
             higroup = 'IncSearch',
             timeout = 40,
         })
@@ -47,16 +47,17 @@ autocmd({"BufWritePre"}, {
     command = [[%s/\s\+$//e]],
 })
 
-autocmd('BufEnter', {
-    group = ThiagoMurtaGroup,
-    callback = function()
-        if vim.bo.filetype == "zig" then
-            pcall(vim.cmd.colorscheme, "tokyonight-night")
-        else
-            pcall(vim.cmd.colorscheme, "tokyonight-night")--"gruvbox""rose-pine-moon")
-        end
-    end
-})
+vim.cmd("colorscheme rose-pine-moon")
+--autocmd('BufEnter', {
+--    group = ThiagoMurtaGroup,
+--    callback = function()
+--        if vim.bo.filetype == "zig" then
+--            pcall(vim.cmd.colorscheme, "tokyonight-night")
+--        else
+--            pcall(vim.cmd.colorscheme, "tokyonight-night")--"gruvbox""rose-pine-moon")
+--        end
+--    end
+--})
 
 
 autocmd('LspAttach', {

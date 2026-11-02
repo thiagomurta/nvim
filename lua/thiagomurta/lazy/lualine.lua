@@ -1,11 +1,12 @@
 return {
   "nvim-lualine/lualine.nvim",
+  dependencies = { "folke/tokyonight.nvim" },
   config = function()
     local lualine = require("lualine")
 
     lualine.setup({
       options = {
-        theme = "tokyonight", -- ou gruvbox
+        theme = "auto",
         globalstatus = true,  -- barra única (igual VSCode)
         section_separators = "",
         component_separators = "",
@@ -16,7 +17,7 @@ return {
           {
             "mode",
             fmt = function(str)
-              return " " .. str -- ícone estilo primeagen
+              return " " .. str
             end,
           },
         },
